@@ -1,5 +1,7 @@
 # Nallamale Courier Service
 
+This is imaginary courier service that is used to demonstrate the use of the system design principles.
+
 ## Requirements
 
 ## Branches

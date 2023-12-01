@@ -1,6 +1,9 @@
 # Nallamale Courier Service
 
-This is imaginary courier service that is used to demonstrate the use of the system design principles.
+__This is imaginary courier service that is used to demonstrate the use of the system design principles__
+
+Nallamale company is a startup that is into courier services. They have Engineering team with 5 developers, 
+2 QA engineers, 1 DevOps engineer and 1 Product Manager.
 
 ## Requirements
 

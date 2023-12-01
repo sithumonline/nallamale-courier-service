@@ -10,7 +10,7 @@ This is imaginary courier service that is used to demonstrate the use of the sys
 - Branch should be able to register delivery agents
 - Branch should be able to assign a package to a sender
 - Branch should be able to track all packages
-- Branch should be able to update the status/location of a package
+- Branch should be able to update the status/location of a package/packages
 
 ## Senders/Receivers
 

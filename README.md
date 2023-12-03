@@ -50,3 +50,31 @@ They have Engineering team with;
 14. After the tasks are completed, DevOps engineer will deploy the code to the test environment.
 15. QA team will test the code in the test environment.
 !6. After the code is tested, DevOps engineer will deploy the code to the production environment.
+
+## Tools and Technologies
+
+### Project Management
+
+- Jira
+- Confluence
+
+### Design
+
+- Excalidraw
+- Figma
+
+### Development
+
+#### Frontend
+
+- Next.js
+- Tailwind CSS
+
+### Backend
+
+- Javaspring/Golang/.NET
+- MongoDB
+
+Backend will be developed using microservices architecture.
+
+When we comes to languages, we will be using Javaspring, Golang or .NET. We will be using MongoDB as the database.

@@ -78,3 +78,29 @@ They have Engineering team with;
 Backend will be developed using microservices architecture.
 
 When we comes to languages, we will be using Javaspring, Golang or .NET. We will be using MongoDB as the database.
+
+## Design
+
+### High Level Design
+
+We need frontends for the following users;
+- Branch
+- Sender/Receiver
+- Delivery Agent
+
+### Services and APIs
+
+CRUD services:
+- User Service
+= Package Service
+- Branch Service
+- Delivery Agent Service
+
+Handle payments:
+- Payment Service
+
+Handle notifications:
+- Notification Service
+
+Aggregate services:
+- BFF

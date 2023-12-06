@@ -84,9 +84,9 @@ When we comes to languages, we will be using Javaspring, Golang or .NET. We will
 ### High Level Design
 
 We need frontends for the following users;
-- Branch
-- Sender/Receiver
-- Delivery Agent
+- Branch - Web app
+- Sender/Receiver - Web app
+- Delivery Agent - Mobile app
 
 ### Services and APIs
 
@@ -102,5 +102,9 @@ Handle payments:
 Handle notifications:
 - Notification Service
 
-Aggregate services:
+Aggregate services for each frontend:
 - BFF
+
+IAM:
+- Auth0
+

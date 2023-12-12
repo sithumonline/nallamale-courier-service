@@ -89,6 +89,8 @@ Golang backend framework: Gin
 
 PubSub: Kafka
 
+Tracing and Observability: OpenTelemetry and Jaeger
+
 ## Design
 
 ### High Level Design

@@ -89,7 +89,17 @@ Golang backend framework: Gin
 
 PubSub: Kafka
 
-Tracing and Observability: OpenTelemetry and Jaeger
+Caching: Redis
+
+Tracing and Observability: OpenTelemetry and Jaeger/Gafaana
+
+CI: GitHub Actions
+
+CD: ArgoCD
+
+Secrets Management: HashiCorp Vault
+
+K8s: EKS
 
 ## Design
 

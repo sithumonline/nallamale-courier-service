@@ -72,12 +72,22 @@ They have Engineering team with;
 
 ### Backend
 
-- Javaspring/Golang/.NET
+- Javascript/Golang/.NET
 - MongoDB
 
-Backend will be developed using microservices architecture.
+Backend will be developed using microservices architecture because,
+
+- We can scale, deploy and maintain each service independently
+- We can use different tech stacks for each service
 
 When we comes to languages, we will be using Javaspring, Golang or .NET. We will be using MongoDB as the database.
+We chose MongoDB because rapidly changing requirements and it is easy to scale.
+
+Javascript backend framework: Express.js
+Golang backend framework: Gin
+.NET backend framework: ASP.NET Core
+
+PubSub: Kafka
 
 ## Design
 
@@ -91,10 +101,9 @@ We need frontends for the following users;
 ### Services and APIs
 
 CRUD services:
-- User Service
+- User Service (Sender/Receiver/Delivery Agent/Branch Admin)
 = Package Service
 - Branch Service
-- Delivery Agent Service
 
 Handle payments:
 - Payment Service
@@ -108,3 +117,123 @@ Aggregate services for each frontend:
 IAM:
 - Auth0
 
+Feature flags:
+- LaunchDarkly
+
+Email service:
+- SendGrid
+
+SMS service:
+- Twilio
+
+Push notification service:
+- OneSignal
+
+### Database Design
+
+#### User Service
+
+__User (Sender/Receiver) Model__
+
+```json
+{
+    "_id": "1",
+    "name": "John Doe",
+    "email": "john@mail.com",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"],
+    "password": {
+        "hash": "1234567890",
+        "salt": "1234567890"
+    },
+    "createdAt": "2021-09-01T00:00:00Z",
+    "updatedAt": "2021-09-01T00:00:00Z"
+}
+```
+
+__Delivery Agent Model__
+
+```json
+{
+    "_id": "1",
+    "name": "John Doe",
+    "email": "john@mail.com",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"],
+    "NIC": "123456789V",
+    "branch": "1",
+    "password": {
+        "hash": "1234567890",
+        "salt": "1234567890"
+    },
+    "createdAt": "2021-09-01T00:00:00Z",
+    "updatedAt": "2021-09-01T00:00:00Z"
+}
+```
+
+__Branch Admin Model__
+
+```json
+{
+    "_id": "1",
+    "name": "John Doe",
+    "email": "john.doe@mail.com",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"],
+    "NIC": "123456789V",
+    "branch": "1",
+    "password": {
+        "hash": "1234567890",
+        "salt": "1234567890"
+    },
+    "createdAt": "2021-09-01T00:00:00Z",
+    "updatedAt": "2021-09-01T00:00:00Z"
+}
+```
+
+#### Package Service
+
+__Package Model__
+
+```json
+{
+    "_id": "1",
+    "sender": {
+        "id": "1",
+        "name": "John Doe",
+        "address": "123, Main Street, New York, NY",
+        "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+    },
+    "receiver": {
+        "id": "1",
+        "name": "John Doe",
+        "address": "123, Main Street, New York, NY",
+        "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+    },
+    "deliveryAgent": "1",
+    "statusHistory": [
+        {
+            "status": "pending",
+            "location": "New York Branch",
+            "createdAt": "2021-09-01T00:00:00Z"
+        }
+    ],
+    "createdAt": "2021-09-01T00:00:00Z",
+    "updatedAt": "2021-09-01T00:00:00Z"
+}
+```
+
+#### Branch Service
+
+__Branch Model__
+
+```json
+{
+    "_id": "1",
+    "name": "New York Branch",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"],
+    "createdAt": "2021-09-01T00:00:00Z",
+    "updatedAt": "2021-09-01T00:00:00Z"
+}
+```

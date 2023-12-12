@@ -72,34 +72,41 @@ They have Engineering team with;
 
 ### Backend
 
+**Languages**:
 - Javascript/Golang/.NET
+
+**Database**:
 - MongoDB
 
-Backend will be developed using microservices architecture because,
+We chose MongoDB because rapidly changing requirements and it is easy to scale.
 
+**Backend Frameworks**:
+- Javascript: Express.js
+- Golang: Gin
+- .NET: ASP.NET Core
+
+**Architecture**:
+- Microservices
+
+Backend will be developed using microservices architecture because,
 - We can scale, deploy and maintain each service independently
 - We can use different tech stacks for each service
 
-When we comes to languages, we will be using Javaspring, Golang or .NET. We will be using MongoDB as the database.
-We chose MongoDB because rapidly changing requirements and it is easy to scale.
+### Infrastructure
 
-Javascript backend framework: Express.js
-Golang backend framework: Gin
-.NET backend framework: ASP.NET Core
+**PubSub**: Kafka
 
-PubSub: Kafka
+**Caching**: Redis
 
-Caching: Redis
+**Tracing and Observability**: OpenTelemetry and Jaeger/Grafana
 
-Tracing and Observability: OpenTelemetry and Jaeger/Gafaana
+**CI**: GitHub Actions
 
-CI: GitHub Actions
+**CD**: ArgoCD
 
-CD: ArgoCD
+**Secrets Management**: HashiCorp Vault
 
-Secrets Management: HashiCorp Vault
-
-K8s: EKS
+**K8s**: EKS
 
 ## Design
 

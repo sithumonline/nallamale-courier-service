@@ -256,3 +256,64 @@ __Branch Model__
     "updatedAt": "2021-09-01T00:00:00Z"
 }
 ```
+
+### Architecture Diagram
+
+```mermaid
+graph LR
+    subgraph Sender/Receiver
+        A[Landing Page]
+        B[BFF - Customer]
+    end
+
+    subgraph Services
+        C[User Service]
+        D[Package Service]
+        E[Branch Service]
+        F[Payment Service]
+        G[Notification Service]
+        H[Auth0]
+        I[LaunchDarkly]
+        J[SendGrid]
+        K[Twilio]
+        L[OneSignal]
+    end
+
+    subgraph Branch Admin
+        M[Branch Admin Web App]
+        N[BFF - Branch Admin]
+    end
+
+    subgraph Delivery Agent
+        O[Delivery Agent Mobile App]
+        P[BFF - Delivery Agent]
+    end
+
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    B --> G
+    B --> H
+    B --> I
+    G --> J
+    G --> K
+    G --> L
+    M --> N
+    N --> C
+    N --> D
+    N --> E
+    N --> F
+    N --> G
+    N --> H
+    N --> I
+    O --> P
+    P --> C
+    P --> D
+    P --> E
+    P --> F
+    P --> G
+    P --> H
+    P --> I
+```

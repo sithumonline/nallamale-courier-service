@@ -14,6 +14,10 @@ They have Engineering team with;
 - 1 tech lead
 - UI/UX designer
 
+I'm trying to apply stuffs that I learned from the book,
+
+- [Software Architecture and Decision Making](https://ptgmedia.pearsoncmg.com/images/9780138249731/samplepages/9780138249731_Sample.pdf) by Srinath Perera.
+
 ## Requirements
 
 ## Branches
@@ -316,4 +320,140 @@ graph LR
     P --> G
     P --> H
     P --> I
+```
+
+## API Design
+
+### User Service
+
+__Login__
+
+```http
+POST {{url}}/api/v1/users/login
+Content-Type: application/json
+
+{
+    "email": "john@mail.com"
+    "password": "1234567890"
+}
+```
+
+__Register__
+
+```http
+POST {{url}}/api/v1/users/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@mail.com",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"],
+    "password": "1234567890"
+}
+```
+
+__Get User__
+
+```http
+GET {{url}}/api/v1/users/{{userId}}
+```
+
+__Update User__
+
+```http
+PUT {{url}}/api/v1/users/{{userId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "John Doe",
+    "email": "john@mail.com",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"],
+    "password": "1234567890"
+}
+```
+
+__Delete User__
+
+```http
+DELETE {{url}}/api/v1/users/{{userId}}
+Authorization: Bearer {{token}}
+```
+
+### Package Service
+
+__Create Package__
+
+```http
+POST {{url}}/api/v1/packages
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "sender": {
+        "id": "1",
+        "name": "John Doe",
+        "address": "123, Main Street, New York, NY",
+        "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+    },
+    "receiver": {
+        "id": "1",
+        "name": "John Doe",
+        "address": "123, Main Street, New York, NY",
+        "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+    },
+    "deliveryAgent": "1",
+    "statusHistory": [
+        {
+            "status": "pending",
+            "location": "New York Branch",
+            "createdAt": "2021-09-01T00:00:00Z"
+        }
+    ]
+}
+```
+
+__Get Package__
+
+```http
+GET {{url}}/api/v1/packages/{{packageId}}
+```
+
+__Update Package__
+
+```http
+PUT {{url}}/api/v1/packages/{{packageId}}
+Content-Type: application/json
+
+{
+    "sender": {
+        "id": "1",
+        "name": "John Doe",
+        "address": "123, Main Street, New York, NY",
+        "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+    },
+    "receiver": {
+        "id": "1",
+        "name": "John Doe",
+        "address": "123, Main Street, New York, NY",
+        "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+    },
+    "deliveryAgent": "1",
+    "statusHistory": [
+        {
+            "status": "pending",
+            "location": "New York Branch",
+            "createdAt": "2021-09-01T00:00:00Z"
+        }
+    ]
+}
+```
+
+__Delete Package__
+
+```http
+DELETE {{url}}/api/v1/packages/{{packageId}}
+Authorization: Bearer {{token}}
 ```

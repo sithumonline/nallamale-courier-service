@@ -338,7 +338,7 @@ Content-Type: application/json
 }
 ```
 
-__Register__
+__Register__ <!-- pass type of user ex: client, admin and delivery -->
 
 ```http
 POST {{url}}/api/v1/users/register
@@ -359,7 +359,7 @@ __Get User__
 GET {{url}}/api/v1/users/{{userId}}
 ```
 
-__Update User__
+__Update User__ <!-- pass type of user ex: client, admin and delivery -->
 
 ```http
 PUT {{url}}/api/v1/users/{{userId}}
@@ -382,9 +382,21 @@ DELETE {{url}}/api/v1/users/{{userId}}
 Authorization: Bearer {{token}}
 ```
 
+__Forgot Password__
+
+```http
+POST {{url}}/api/v1/users/forgot-password
+Content-Type: application/json
+
+{
+    "email": "john@mail.com"
+}
+```
+
+
 ### Package Service
 
-__Create Package__
+__Create Package__ <!-- have to link with branch, client, delivery agent -->
 
 ```http
 POST {{url}}/api/v1/packages
@@ -426,6 +438,7 @@ __Update Package__
 ```http
 PUT {{url}}/api/v1/packages/{{packageId}}
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
     "sender": {
@@ -455,5 +468,63 @@ __Delete Package__
 
 ```http
 DELETE {{url}}/api/v1/packages/{{packageId}}
+Authorization: Bearer {{token}}
+```
+
+__Get Packages__
+
+```http
+GET {{url}}/api/v1/packages
+Authorization: Bearer {{token}}
+```
+
+### Branch Service
+
+__Create Branch__
+
+```http
+POST {{url}}/api/v1/branches
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "New York Branch",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+}
+```
+
+__Get Branch__
+
+```http
+GET {{url}}/api/v1/branches/{{branchId}}
+```
+
+__Update Branch__
+
+```http
+PUT {{url}}/api/v1/branches/{{branchId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "New York Branch",
+    "address": "123, Main Street, New York, NY",
+    "phone": ["+1 123 456 7890", "+1 123 456 7891"]
+}
+```
+
+__Delete Branch__
+
+```http
+DELETE {{url}}/api/v1/branches/{{branchId}}
+Authorization: Bearer {{token}}
+```
+
+__Get Branches__
+
+```http
+GET {{url}}/api/v1/branches
+Content-Type: application/json
 Authorization: Bearer {{token}}
 ```
